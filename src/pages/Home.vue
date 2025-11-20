@@ -11,14 +11,14 @@
     <section class="featured-products">
       <h2>おすすめ商品</h2>
       <div class="products-grid">
-        <ProductCard 
-          v-for="product in featuredProducts" 
-          :key="product.id" 
-          :product="product"
-        />
+        <div v-for="product in featuredProducts" :key="product.id" class="featured-card">
+          <img :src="product.image" :alt="product.name">
+          <h3>{{ product.name }}</h3>
+          <p class="grade">{{ product.grade }}</p>
+        </div>
       </div>
     </section>
-
+    
     <section class="about">
       <h2>こだわり</h2>
       <div class="about-content">
@@ -41,20 +41,16 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import ProductCard from '../components/ProductCard.vue'
 
 export default defineComponent({
   name: 'Home',
-  components: {
-    ProductCard,
-  },
   data() {
     return {
       featuredProducts: [
         { id: 1, name: '上タン塩', grade: 'Premium', price: 5000, image: '/meat1.jpg' },
         { id: 2, name: '上カルビ', grade: 'Premium', price: 10000, image: '/meat2.jpg' },
         { id: 3, name: '上ハラミ', grade: 'Exclusive', price: 5000, image: '/meat3.jpg' },
-        { id: 4, name: 'セット', grade: 'Standard', price: 8000, image: '/meat4.jpg' },
+        { id: 4, name: 'サーロイン', grade: 'Premium', price: 10000, image: '/meat4.jpg' },
       ],
     }
   },
@@ -71,6 +67,12 @@ export default defineComponent({
 .featured-products { padding: 80px 20px; max-width: 1400px; margin: 0 auto; }
 .featured-products h2 { font-size: 2.5rem; color: #d4af37; text-align: center; margin-bottom: 60px; letter-spacing: 2px; font-weight: 300; }
 .products-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; margin-bottom: 60px; }
+.featured-card { background: #1a1a1a; border: 2px solid #d4af37; border-radius: 8px; overflow: hidden; padding: 0; text-align: center; transition: all 0.3s ease; display: flex; flex-direction: column; }
+.featured-card:hover { transform: translateY(-10px); box-shadow: 0 10px 30px rgba(212, 175, 55, 0.2); }
+.featured-card img { width: 100%; height: 180px; object-fit: cover; }
+.featured-card h3 { color: #d4af37; margin: 15px 15px 5px 15px; font-size: 1.1rem; font-weight: 600; }
+.featured-card .grade { color: #bbb; font-size: 0.9rem; margin: 5px 15px; }
+.featured-card .price { color: #d4af37; font-weight: bold; font-size: 1.3rem; margin: 10px 15px 15px 15px; }
 .about { background: linear-gradient(135deg, #1a1a1a 0%, #000000 100%); padding: 80px 20px; border-top: 3px solid #d4af37; }
 .about h2 { font-size: 2.5rem; color: #d4af37; text-align: center; margin-bottom: 60px; letter-spacing: 2px; font-weight: 300; }
 .about-content { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; max-width: 1200px; margin: 0 auto; }

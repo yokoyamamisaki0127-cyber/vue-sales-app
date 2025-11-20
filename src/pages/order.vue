@@ -27,10 +27,11 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
-import ProductCard from '../components/ProductCard.vue';
+import { defineComponent } from 'vue'
+import ProductCard from '../components/ProductCard.vue'
 
 export default defineComponent({
+  name: 'Order',
   components: {
     ProductCard,
   },
@@ -50,22 +51,22 @@ export default defineComponent({
         { id: 11, name: 'ステーキセット', price: 16000, grade: 'Exclusive', image: '/meat11.jpg' },
         { id: 12, name: 'プレミアムセット', price: 20000, grade: 'Exclusive', image: '/meat12.jpg' },
       ],
-    };
+    }
   },
   methods: {
     handleAddToCart(product: any) {
-      let cart = JSON.parse(localStorage.getItem('cart') || '[]');
-      const existingItem = cart.find((item: any) => item.id === product.id);
+      let cart = JSON.parse(localStorage.getItem('cart') || '[]')
+      const existingItem = cart.find((item: any) => item.id === product.id)
       if (existingItem) {
-        existingItem.quantity++;
+        existingItem.quantity++
       } else {
-        cart.push({ ...product, quantity: 1 });
+        cart.push({ ...product, quantity: 1 })
       }
-      localStorage.setItem('cart', JSON.stringify(cart));
-      alert('カートに追加されました');
+      localStorage.setItem('cart', JSON.stringify(cart))
+      alert('カートに追加されました')
     },
   },
-});
+})
 </script>
 
 <style scoped>

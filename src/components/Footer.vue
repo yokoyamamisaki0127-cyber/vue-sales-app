@@ -3,21 +3,22 @@
     <div class="footer-content">
       <div class="footer-section">
         <h3>外苑の肉直売</h3>
-        <p>厳選された最高級和牛・焼肉をお届けします</p>
+        <p>厳選された最高級和牛を直売でお届けします</p>
         <p class="contact">📞 0489-28-6777</p>
       </div>
-      
+
       <div class="footer-section">
+        <h3>SNS</h3>
         <ul>
-          <li><router-link to="/">ホーム</router-link></li>
-          <li><span class="divider">|</span></li>
-          <li><router-link to="/order">ご注文</router-link></li>
-          <li><span class="divider">|</span></li>
-          <li><router-link to="/cart">カート</router-link></li>
+          <li><a href="https://www.instagram.com/sokayakinikugaien/" target="_blank" rel="noopener noreferrer">📸 Instagram</a></li>
+          <li><a href="https://tabelog.com/saitama/A1102/A110203/11001427/" target="_blank" rel="noopener noreferrer">🍽️ 食べログ</a></li>
         </ul>
       </div>
+
+      <div class="footer-section">
+      </div>
     </div>
-    
+
     <div class="footer-bottom">
       <p>&copy; 2025 <span class="brand">外苑の肉直売</span> All rights reserved.</p>
     </div>
@@ -35,8 +36,11 @@ export default defineComponent({
 <style scoped>
 .footer { 
   background: linear-gradient(180deg, #0a0a0a 0%, #000000 100%);
-  color: #f5f5f5; 
-  border-top: 3px solid #d4af37; 
+  color: #f5f5f5;
+  border-top: 3px solid #d4af37;
+  border-left: 2px solid #d4af37;
+  border-right: 2px solid #d4af37;
+  border-bottom: 3px solid #d4af37;
   padding: 80px 20px 30px;
 }
 
@@ -89,11 +93,6 @@ export default defineComponent({
   margin-bottom: 0;
 }
 
-.divider {
-  color: #d4af37;
-  opacity: 0.5;
-}
-
 .footer-section a { 
   color: #d4af37; 
   text-decoration: none; 
@@ -122,5 +121,17 @@ export default defineComponent({
 .brand {
   color: #d4af37;
   font-weight: bold;
+}
+
+@media (max-width: 900px) {
+  .footer-content {
+    flex-direction: column;
+    gap: 40px;
+  }
+  
+  .footer-section ul {
+    flex-direction: column;
+    gap: 10px;
+  }
 }
 </style>
